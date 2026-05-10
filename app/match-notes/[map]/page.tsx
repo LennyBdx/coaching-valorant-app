@@ -31,12 +31,26 @@ export default function MapMatchNotesPage() {
   const mapInfo = getMapBySlug(mapSlug);
   const router = useRouter();
   const team = useActiveTeam();
-  const { notes, add, remove } = useMatchNotes(mapSlug, team ?? undefined);
+  const { notes, add, remove, update } = useMatchNotes(mapSlug, team ?? undefined);
   const gate = useCodeGate();
 
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
   const [toDelete, setToDelete] = useState<{ id: string; opponent: string } | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState(EMPTY_FORM);
+
+  function startEdit(note: MatchNote) {
+    setEditingId(note.id);
+    setEditForm({ date: note.date, opponent: note.opponent, atkScore: note.atkScore, defScore: note.defScore, oppScore: note.oppScore, notes: note.notes });
+  }
+
+  function handleEditSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!editForm.opponent.trim() || !editingId) return;
+    update(editingId, { date: editForm.date, opponent: editForm.opponent, atkScore: +editForm.atkScore, defScore: +editForm.defScore, oppScore: +editForm.oppScore, notes: editForm.notes });
+    setEditingId(null);
+  }
 
   useEffect(() => {
     if (team === '') router.push('/match-notes');
@@ -197,50 +211,103 @@ export default function MapMatchNotesPage() {
               const rs = RESULT_STYLES[result];
               const total = note.atkScore + note.defScore;
               return (
-                <div key={note.id} style={{ background: 'var(--val-surface)', border: '1px solid var(--val-border2)', borderRadius: '8px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '3px', height: '100%', background: rs.color }} />
+                <div key={note.id} style={{ background: 'var(--val-surface)', border: `1px solid ${editingId === note.id ? mapInfo.color + '60' : 'var(--val-border2)'}`, borderRadius: '8px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', top: 0, left: 0, width: '3px', height: '100%', background: editingId === note.id ? mapInfo.color : rs.color }} />
 
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-                      {/* Result badge */}
-                      <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: rs.color, background: rs.bg, border: `1px solid ${rs.border}`, padding: '4px 10px', borderRadius: '4px', flexShrink: 0 }}>
-                        {rs.label}
-                      </span>
-                      {/* Score */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '28px', color: rs.color, lineHeight: 1 }}>{total}</span>
-                        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--val-muted)' }}>vs</span>
-                        <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '28px', color: 'var(--val-muted)', lineHeight: 1 }}>{note.oppScore}</span>
+                  {editingId === note.id ? (
+                    <form onSubmit={handleEditSubmit}>
+                      <div style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: mapInfo.color, marginBottom: '16px' }}>
+                        // Edit result
                       </div>
-                      {/* ATK / DEF breakdown */}
-                      <div style={{ display: 'flex', gap: '8px' }}>
-                        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#ff4757', background: '#ff475718', border: '1px solid #ff475730', padding: '3px 8px', borderRadius: '4px' }}>
-                          ATK {note.atkScore}
-                        </span>
-                        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#4ecdc4', background: '#4ecdc418', border: '1px solid #4ecdc430', padding: '3px 8px', borderRadius: '4px' }}>
-                          DEF {note.defScore}
-                        </span>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+                        <div>
+                          <label style={labelStyle}>Date</label>
+                          <input type="date" value={editForm.date} onChange={e => setEditForm(f => ({ ...f, date: e.target.value }))} style={inputStyle} required />
+                        </div>
+                        <div>
+                          <label style={labelStyle}>Opponent</label>
+                          <input type="text" value={editForm.opponent} onChange={e => setEditForm(f => ({ ...f, opponent: e.target.value }))} style={inputStyle} required />
+                        </div>
                       </div>
-                      {/* Opponent + date */}
-                      <div>
-                        <span style={{ fontFamily: 'var(--font-syne)', fontSize: '15px', fontWeight: 800, color: 'var(--val-text)' }}>{note.opponent}</span>
-                        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'var(--val-muted)', marginLeft: '10px' }}>
-                          {new Date(note.date + 'T12:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
-                        </span>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+                        <div>
+                          <label style={{ ...labelStyle, color: '#ff4757' }}>ATK Rounds</label>
+                          <input type="number" min={0} max={13} value={editForm.atkScore} onChange={e => setEditForm(f => ({ ...f, atkScore: +e.target.value }))} style={{ ...inputStyle, borderColor: '#ff475740' }} required />
+                        </div>
+                        <div>
+                          <label style={{ ...labelStyle, color: '#4ecdc4' }}>DEF Rounds</label>
+                          <input type="number" min={0} max={13} value={editForm.defScore} onChange={e => setEditForm(f => ({ ...f, defScore: +e.target.value }))} style={{ ...inputStyle, borderColor: '#4ecdc440' }} required />
+                        </div>
+                        <div>
+                          <label style={labelStyle}>Opponent score</label>
+                          <input type="number" min={0} max={25} value={editForm.oppScore} onChange={e => setEditForm(f => ({ ...f, oppScore: +e.target.value }))} style={inputStyle} required />
+                        </div>
                       </div>
-                    </div>
-                    {/* Delete */}
-                    <button
-                      onClick={() => { setToDelete({ id: note.id, opponent: note.opponent }); gate.request(() => { remove(note.id); setToDelete(null); }); }}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--val-muted)', cursor: 'pointer', fontSize: '14px', padding: '0 4px', flexShrink: 0 }}
-                      title="Supprimer"
-                    >✕</button>
-                  </div>
+                      <div style={{ marginBottom: '16px' }}>
+                        <label style={labelStyle}>Notes / Observations</label>
+                        <textarea value={editForm.notes} onChange={e => setEditForm(f => ({ ...f, notes: e.target.value }))} rows={3} style={{ ...inputStyle, resize: 'vertical', lineHeight: 1.6 }} />
+                      </div>
+                      <div style={{ display: 'flex', gap: '10px' }}>
+                        <button type="submit" style={{ background: mapInfo.color, border: 'none', borderRadius: '6px', padding: '10px 22px', fontFamily: 'var(--font-dm-mono)', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: '#0a0b0e', fontWeight: 'bold', cursor: 'pointer' }}>
+                          Save
+                        </button>
+                        <button type="button" onClick={() => setEditingId(null)} style={{ background: 'transparent', border: '1px solid var(--val-border2)', borderRadius: '6px', padding: '10px 22px', fontFamily: 'var(--font-dm-mono)', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--val-muted)', cursor: 'pointer' }}>
+                          Cancel
+                        </button>
+                      </div>
+                    </form>
+                  ) : (
+                    <>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                          {/* Result badge */}
+                          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: rs.color, background: rs.bg, border: `1px solid ${rs.border}`, padding: '4px 10px', borderRadius: '4px', flexShrink: 0 }}>
+                            {rs.label}
+                          </span>
+                          {/* Score */}
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '28px', color: rs.color, lineHeight: 1 }}>{total}</span>
+                            <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--val-muted)' }}>vs</span>
+                            <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '28px', color: 'var(--val-muted)', lineHeight: 1 }}>{note.oppScore}</span>
+                          </div>
+                          {/* ATK / DEF breakdown */}
+                          <div style={{ display: 'flex', gap: '8px' }}>
+                            <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#ff4757', background: '#ff475718', border: '1px solid #ff475730', padding: '3px 8px', borderRadius: '4px' }}>
+                              ATK {note.atkScore}
+                            </span>
+                            <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#4ecdc4', background: '#4ecdc418', border: '1px solid #4ecdc430', padding: '3px 8px', borderRadius: '4px' }}>
+                              DEF {note.defScore}
+                            </span>
+                          </div>
+                          {/* Opponent + date */}
+                          <div>
+                            <span style={{ fontFamily: 'var(--font-syne)', fontSize: '15px', fontWeight: 800, color: 'var(--val-text)' }}>{note.opponent}</span>
+                            <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'var(--val-muted)', marginLeft: '10px' }}>
+                              {new Date(note.date + 'T12:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                            </span>
+                          </div>
+                        </div>
+                        {/* Edit + Delete */}
+                        <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
+                          <button
+                            onClick={() => startEdit(note)}
+                            style={{ background: 'transparent', border: 'none', color: 'var(--val-muted)', cursor: 'pointer', fontSize: '13px', padding: '0 6px' }}
+                            title="Modifier"
+                          >✏</button>
+                          <button
+                            onClick={() => { setToDelete({ id: note.id, opponent: note.opponent }); gate.request(() => { remove(note.id); setToDelete(null); }); }}
+                            style={{ background: 'transparent', border: 'none', color: 'var(--val-muted)', cursor: 'pointer', fontSize: '14px', padding: '0 4px' }}
+                            title="Supprimer"
+                          >✕</button>
+                        </div>
+                      </div>
 
-                  {note.notes && (
-                    <div style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--val-muted)', lineHeight: 1.7, marginTop: '14px', paddingTop: '14px', borderTop: '1px solid var(--val-border2)', whiteSpace: 'pre-wrap' }}>
-                      {note.notes}
-                    </div>
+                      {note.notes && (
+                        <div style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--val-muted)', lineHeight: 1.7, marginTop: '14px', paddingTop: '14px', borderTop: '1px solid var(--val-border2)', whiteSpace: 'pre-wrap' }}>
+                          {note.notes}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               );

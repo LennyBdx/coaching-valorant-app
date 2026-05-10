@@ -53,10 +53,17 @@ export function useMatchNotes(mapSlug?: string, teamSlug?: string) {
   }
 
   async function update(id: string, data: Partial<MatchNote>) {
+    const body: Record<string, unknown> = {};
+    if (data.date !== undefined)     body.date      = data.date;
+    if (data.opponent !== undefined) body.opponent  = data.opponent;
+    if (data.atkScore !== undefined) body.atk_score = data.atkScore;
+    if (data.defScore !== undefined) body.def_score = data.defScore;
+    if (data.oppScore !== undefined) body.opp_score = data.oppScore;
+    if (data.notes !== undefined)    body.notes     = data.notes;
     await fetch(`/api/match-notes/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     });
     setNotes(prev => prev.map(n => n.id === id ? { ...n, ...data } : n));
   }
