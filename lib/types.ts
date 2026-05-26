@@ -23,6 +23,7 @@ export interface VodReview {
   map: string;
   date?: string;
   tournament?: string;
+  team?: string;
   tag: string;
   phases: Phase[];
 }

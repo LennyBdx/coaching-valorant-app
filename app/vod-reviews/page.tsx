@@ -19,7 +19,7 @@ const teams = [
   {
     name: "EVERLASTING",
     accent: "#4ecdc4",
-    reviews: vodReviews.filter((v) => !v.tournament),
+    reviews: vodReviews.filter((v) => !v.tournament && !v.team),
   },
   {
     name: "RCS",
@@ -29,7 +29,7 @@ const teams = [
   {
     name: "ROZ",
     accent: "#a29bfe",
-    reviews: [] as VodReview[],
+    reviews: vodReviews.filter((v) => v.team === "ROZ"),
   },
 ];
 

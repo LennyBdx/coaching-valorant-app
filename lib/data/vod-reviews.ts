@@ -437,6 +437,68 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Pearl ───────────────────────────────────────────────────────────────────
+  {
+    slug: "pearl-debrief",
+    map: "Pearl",
+    team: "ROZ",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "01 → 12",
+        generalNotes: [
+          "Always trade space — if we know they have 3+ on a position, rotate away and push the open side instead.",
+          "Remember to call — or renew the call — on whether they are committing or not.",
+          "Call their routines. For example: they always stun A main with an arrow.",
+          "Call ultimates — we sometimes forget.",
+          "Call the enemy's economy so we can better read what they're capable of.",
+          "Call what utilities you have available for retake before going in.",
+          "One solution against them is to play more aggressively around mid — force them to spend more utility just to take that space, since they were getting it too easily.",
+        ],
+        rounds: [
+          { number: 1, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice call Thykuza to reclear mid and kill the lurker. One improvement: if we know there are 3+ on A, Fahniez can easily push towards B main to trade space and cut off the rotation." },
+          { number: 2, side: "defense", tag: { type: "nice", label: "Good Read" }, text: "Nice eco Fahniez — great reaction to play close to the smoke." },
+          { number: 3, side: "defense", tag: { type: "info", label: "Retake Comms" }, text: "Nice round — just remember to call your intentions on retake so everyone is on the same page." },
+          { number: 4, side: "defense", tag: { type: "nice", label: "Good Reaction" }, text: "Nice reaction on Art." },
+          { number: 5, side: "defense", tag: { type: "info", label: "Economy Read" }, text: "Call that they're on a low buy — it means they will do something fast. Nice space trade on B main, we knew they were going to push." },
+          { number: 6, side: "defense", tag: { type: "info", label: "Group Play" }, text: "In this case I think we can play together as three." },
+          { number: 8, side: "defense", tag: { type: "info", label: "Pattern Recognition" }, text: "At this point we need to recognize that they most likely play first intention and always group 4 in the same place with a Chamber lurk. Nice clutch Astra." },
+          { number: 9, side: "defense", tag: { type: "warn", label: "Advantage Management" }, text: "We have the advantage — no need to play that aggressively." },
+          { number: 11, side: "defense", tag: { type: "nice", label: "Discipline" }, text: "Nice round — not over-committing is great." },
+          { number: 12, side: "defense", tag: { type: "info", label: "Bait Coordination" }, text: "Nice read Thykuza. Neon, when you bait like that it's perfect — Phoenix is going to get free kills when you're low. Try to play safe after the bait." },
+        ],
+      },
+      {
+        side: "attack",
+        label: "T-Side",
+        roundRange: "13 → 24",
+        generalNotes: [
+          "Call ultimates and flag the operator possibility.",
+          "Post-plant: call which lines you're holding and what utilities you have left.",
+          "Also call out their routines.",
+          "Try to take the Phoenix orb as much as possible — it's very strong with this comp.",
+          "Against this comp we need to create activity towards mid or B — otherwise they will play strong on A with Chamber's operator.",
+          "Remember the fundamentals: when we have a numbers advantage like 5v4, regroup and play together or freeze in position.",
+          "Always identify the weakest site and exploit it. An A-split-to-B is very strong — they play 3 on A most of the time, with 2 on main and 1 on arcade.",
+        ],
+        rounds: [
+          { number: 13, side: "attack", tag: { type: "info", label: "Fake Options" }, text: "If Chamber fakes, we can use a fake smoke to sell it — otherwise it's hard to fake effectively." },
+          { number: 15, side: "attack", tag: { type: "info", label: "Spacing" }, text: "Be careful — in a 3-2 split we need someone in B main. Nice call Thykuza, they won't expect you, but afterwards they need to play main alongside you." },
+          { number: 16, side: "attack", tag: { type: "nice", label: "Unlucky" }, text: "Nice try — great the way we played the 2v4, unlucky we didn't win it." },
+          { number: 17, side: "attack", tag: { type: "warn", label: "Mid Contest" }, text: "Unlucky — they contested mid and we weren't ready for it." },
+          { number: 18, side: "attack", tag: { type: "info", label: "Advantage Management" }, text: "5v4 — try to regroup or freeze. It was a bit risky how we played it, but we managed to win the round." },
+          { number: 20, side: "attack", tag: { type: "nice", label: "Good Call" }, text: "Nice call — B split is the solution. Unlucky we're on a low buy. If they fight you, it means they have all of B main and are playing as a trio, because that's always their pattern." },
+          { number: 21, side: "attack", tag: { type: "info", label: "Orb Read" }, text: "Fahniez — you see an orb on window, which clearly signals a mid take. Call it so everyone is aware and can push A space. CT side could be a great option here." },
+          { number: 22, side: "attack", tag: { type: "info", label: "Pattern Read" }, text: "At this moment, recognize that they are pushing A. If we see Chamber on B main and nobody is taking mid, they will be proactive and push somewhere to catch Chamber off position." },
+          { number: 23, side: "attack", tag: { type: "nice", label: "Lurk Comms" }, text: "Nice round. Fahniez, call it more clearly when you're in a great lurk position and enemies aren't picking — that way we can play around you." },
+          { number: 24, side: "attack", tag: { type: "warn", label: "Awareness" }, text: "We're being naive to think they'll stay passive and let Chamber play B alone — always be aware that they can push and adjust accordingly." },
+        ],
+      },
+    ],
+  },
+
   // ── Split (sans date) ────────────────────────────────────────────────────────
   {
     slug: "split-debrief",
