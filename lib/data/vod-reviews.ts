@@ -437,6 +437,66 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Lotus ───────────────────────────────────────────────────────────────────
+  {
+    slug: "lotus-debrief",
+    map: "Lotus",
+    team: "ROZ",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "01 → 12",
+        generalNotes: [
+          "Against this comp they will play strong towards B and C — with our comp it's hard for them to take A.",
+          "On retake, call what utilities you have left before going in.",
+          "When we have the advantage, we tend to overcommit for nothing — just play for info and wait for the rotation.",
+          "We know they play slow — take space and wait. They have nothing to contest on A main, we can easily place Raze's rubble there.",
+          "Call their routines.",
+          "We're a bit too aggressive — we push too far and that's why we sometimes get punished.",
+        ],
+        rounds: [
+          { number: 1, side: "defense", tag: { type: "info", label: "Pace Read" }, text: "We need to recognize quickly that they play very slow on attack — our job is to take as much space as possible." },
+          { number: 3, side: "defense", tag: { type: "info", label: "Fallback Option" }, text: "Fahniez, if you see they hard contest, easily fall back and play retake — especially when we have the advantage." },
+          { number: 4, side: "defense", tag: { type: "warn", label: "Call Accuracy" }, text: "Be careful with your calls Thykuza — we're fine with 3 on B but they can go C and Fahniez has a fast rotation, so don't call B when they haven't entered site yet. Stay aware." },
+          { number: 5, side: "defense", tag: { type: "info", label: "Advantage Management" }, text: "5v3 — no need to commit. Jiggle and play for info, wait for the rotation." },
+          { number: 7, side: "defense", tag: { type: "info", label: "Solo Retake" }, text: "Fahniez, if you're solo on C, play retake — use the wall and your utilities to stall and wait for the rotation." },
+          { number: 8, side: "defense", tag: { type: "warn", label: "Unlucky" }, text: "Unlucky — a better call would have been to wait for the smoke to clear. It's very hard to cross with a trap right behind it." },
+          { number: 9, side: "defense", tag: { type: "warn", label: "Routine Call" }, text: "When you hear utilities, it always means first intention — call it immediately Fahniez, your calls were too late." },
+          { number: 11, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice round Thykuza, nice Fahniez too." },
+          { number: 12, side: "defense", tag: { type: "info", label: "Commit Decision" }, text: "If we play 3 on A we can commit — we have Omen flash and a lot of utilities to fight. Nice ending though, great position Neon." },
+        ],
+      },
+      {
+        side: "attack",
+        label: "T-Side",
+        roundRange: "13 → 24",
+        generalNotes: [
+          "Call utilities — for example, Deadlock plays with traps on B, always call them.",
+          "Post-plant: call what utilities you have left and which lines you're holding.",
+          "Against this comp we need to play very slowly and abuse A — just wait out Deadlock's grenades.",
+          "Use the Fade nade combo more.",
+          "React faster — if we know 3+ are on C, go instant A, especially against this comp.",
+          "They play strong towards C and B, A is usually their weakest site. Playing A on first intention, then breaking door B / dog / B link and hitting A a second time could be very effective.",
+          "Always maintain a revenge system — Raze and Neon were sometimes alone with nobody able to trade for them.",
+        ],
+        rounds: [
+          { number: 13, side: "attack", tag: { type: "nice", label: "Good Call" }, text: "Nice call to fight — just try to be on the same page and move together. They always play as a group, so when you hear the door open, adjust your position." },
+          { number: 14, side: "attack", tag: { type: "nice", label: "Post-Plant Comms" }, text: "Nice call — just talk more about which lines you're holding post-plant. That communication is key." },
+          { number: 16, side: "attack", tag: { type: "info", label: "Freeze Option" }, text: "When we have tree control A main at 1:20, we can freeze and re-hit A after — that's a perfectly valid call. Nice Neon." },
+          { number: 18, side: "attack", tag: { type: "warn", label: "Support" }, text: "We should help Fade, Neon, and Omen reclear tree — it's too risky to leave them without support." },
+          { number: 19, side: "attack", tag: { type: "nice", label: "Good Call" }, text: "Nice call Fahniez. Try to use the Raze nade combo more. If we know Sage has her revive, we can fight for water instead of staying back site." },
+          { number: 20, side: "attack", tag: { type: "info", label: "Communication" }, text: "Call your intentions — if you want to fight, say it so we can use utilities together Neon. Before the plant, look for kills first — great instinct, unlucky they expected you." },
+          { number: 21, side: "attack", tag: { type: "info", label: "Space Trade" }, text: "If you see 3+ there, go to Fade and take space with her." },
+          { number: 22, side: "attack", tag: { type: "nice", label: "Well Played" }, text: "Nice Thykuza." },
+          { number: 23, side: "attack", tag: { type: "info", label: "Post-Plant Comms" }, text: "Call more about what you're holding post-plant — you were watching two heaven angles." },
+          { number: 24, side: "attack", tag: { type: "nice", label: "Good Call" }, text: "Nice call — in a 2v3, we need to commit to a space and fight." },
+        ],
+      },
+    ],
+  },
+
   // ── Pearl ───────────────────────────────────────────────────────────────────
   {
     slug: "pearl-debrief",
