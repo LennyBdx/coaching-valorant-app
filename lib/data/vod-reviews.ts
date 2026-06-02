@@ -211,7 +211,7 @@ export const vodReviews: VodReview[] = [
   {
     slug: "haven-vs-adt",
     map: "Haven",
-    team: "5o'clock",
+    team: "ROZ",
     tag: "// Match Analysis",
     phases: [
       {
