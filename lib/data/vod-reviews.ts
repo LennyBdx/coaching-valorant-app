@@ -175,6 +175,7 @@ export const vodReviews: VodReview[] = [
     slug: "haven-debrief-02-06-2026",
     map: "Haven",
     date: "02 Jun 2026",
+    team: "ROZ",
     tag: "// Match Analysis",
     phases: [
       {
