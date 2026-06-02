@@ -170,6 +170,42 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Haven 02/06/2026 ─────────────────────────────────────────────────────────
+  {
+    slug: "haven-debrief-02-06-2026",
+    map: "Haven",
+    date: "02 Jun 2026",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "13 → 24",
+        generalNotes: [
+          "On retake: call your remaining utilities and the lines you're holding when someone is defusing — coordinate before going in.",
+          "Recycle information — call whether they are committing or not so the team can adapt in real time.",
+          "We lack communication about what we're holding and how we want to fight or play together.",
+          "If we take a space (e.g., all bottom mid), stick in that position and look for a fast flank.",
+          "Call their ultimates — we sometimes forget.",
+          "Call their economy — low buy, eco, etc. — so we can adapt our calls accordingly.",
+          "Call the operator possibility, especially when we are on T-Side.",
+        ],
+        rounds: [
+          { number: 13, side: "defense", tag: { type: "info", label: "Utility Conservation" }, text: "You can hold onto the arrow if we already know they're rushing A — no need to use it when we have the information." },
+          { number: 14, side: "defense", tag: { type: "warn", label: "Advantage Management" }, text: "It's a 4v4 — no need to play that aggressively as Jett. Take the safe, calculated approach and let the numbers work in our favour." },
+          { number: 15, side: "defense", tag: { type: "info", label: "Space Trade" }, text: "Fahniez: push C to trade space — we know there are two people on window and one on garage, they're probably defaulting. If we get a kill mid, the player on C or A will rotate to help; pushing C lets you catch them off guard in that transition." },
+          { number: 16, side: "defense", tag: { type: "warn", label: "Communication" }, text: "We must call what we're holding every round so everyone knows — when someone comes to help on A, they shouldn't have to check every position themselves." },
+          { number: 17, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice call — Jett, unlucky result. In that situation, don't use utilities, just swing and take the fight cleanly." },
+          { number: 18, side: "defense", tag: { type: "nice", label: "Good Adaptation" }, text: "Good call, nice adaptation — knowing they hard default and staying passive with someone bottom mid is great. One thing: Omen can simply go C on a retake. Also unclear why we gave back all the space we took — if they commit C, we can flank from there." },
+          { number: 19, side: "defense", tag: { type: "warn", label: "Retake Comms" }, text: "We used utilities but didn't call what we had — always announce what you're using and what's left. Nice retake overall." },
+          { number: 20, side: "defense", tag: { type: "info", label: "Advantage Management" }, text: "Nice peek — no need to push A when we have a big advantage. Play it safe and let them come to us." },
+          { number: 22, side: "defense", tag: { type: "warn", label: "Utility Awareness" }, text: "Sova: call the Cypher cage so Peach knows he's there — she can then use a different angle on short and avoid being spotted by Cypher." },
+          { number: 24, side: "defense", tag: { type: "warn", label: "Smoke Placement" }, text: "Smoking long is a mistake here — better to smoke bunker to cut off their rotation and give us a safer retake path." },
+        ],
+      },
+    ],
+  },
+
   // ── Haven 26/02/2026 ─────────────────────────────────────────────────────────
   {
     slug: "haven-debrief-26-02-2026",
