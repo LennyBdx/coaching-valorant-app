@@ -207,6 +207,64 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Haven vs ADT ────────────────────────────────────────────────────────────
+  {
+    slug: "haven-vs-adt",
+    map: "Haven",
+    team: "5o'clock",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "attack",
+        label: "T-Side",
+        roundRange: "01 → 12",
+        generalNotes: [
+          "Avoid blind calls when they're on eco — it's risky if they stack. Read the map for the first 20 seconds, see what space they take, then adapt your call.",
+          "Call the lines you're holding on post-plant every round.",
+          "Call ult availability and the operator possibility.",
+          "With Phoenix, we can run a MIBR-style default — take C long orb every round to farm her ult.",
+          "Always call their economy.",
+        ],
+        rounds: [
+          { number: 1, side: "attack", tag: { type: "nice", label: "Well Played" }, text: "Nice 2v3 — important kill Yor." },
+          { number: 2, side: "attack", tag: { type: "warn", label: "Smoke Timing" }, text: "A bit risky to push through the smoke — better to wait for it to clear before moving." },
+          { number: 3, side: "attack", tag: { type: "info", label: "Dart Usage" }, text: "Nice call — Minyu, a bit naive to take your dart when the smoke goes out, but it worked out." },
+          { number: 5, side: "attack", tag: { type: "nice", label: "Advantage Management" }, text: "Good call — we had the advantage, regrouped, and closed it out together." },
+          { number: 6, side: "attack", tag: { type: "info", label: "Orb Farming" }, text: "In a 1v5, let Phoenix take the kill to farm her orb — it's more valuable than anyone else getting it." },
+          { number: 7, side: "attack", tag: { type: "warn", label: "Positioning" }, text: "Fahniez: on this call, watch garage in case someone pushes out — we left Phoenix's body exposed." },
+          { number: 9, side: "attack", tag: { type: "warn", label: "Ult Protection" }, text: "If we call 'Sova ult' to break their ult, we need to protect her and play site — we can't keep playing as if KJ's ult is still active." },
+          { number: 10, side: "attack", tag: { type: "info", label: "Creative Play" }, text: "2v2 — drop the spike to Fahniez and TP to heaven Omen — they won't see it coming." },
+          { number: 12, side: "attack", tag: { type: "nice", label: "Post-Plant" }, text: "Nice post-plant." },
+        ],
+      },
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "13 → 24",
+        generalNotes: [
+          "Call their ult — if we see Phoenix's ult activate, it almost always signals a fast push.",
+          "Always call their economy.",
+          "Remember to call the patterns and routines we've identified throughout the match.",
+          "Trade space actively — if we see 3+ on A, push towards C to exploit the open side.",
+          "A 1-3-1 setup could work well against them: one mid, one anti-flash, one window, one bottom mid holding garage — they like A main or C long so mid tends to be free.",
+          "The player holding C must call who breaks the arrow — that's a fundamental.",
+        ],
+        rounds: [
+          { number: 13, side: "defense", tag: { type: "warn", label: "Retake Comms" }, text: "Minyu: your utilities are key on retake — always call when you get the reveal back and make sure everyone is on the same page before going in." },
+          { number: 14, side: "defense", tag: { type: "info", label: "Cam Information" }, text: "Fahniez: if you see no one on your cam, call it immediately — it frees everyone to watch CT or long instead of holding a clear angle." },
+          { number: 16, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Very good retake." },
+          { number: 17, side: "defense", tag: { type: "info", label: "Cam Usage" }, text: "Consider placing Cypher's cam there — if we see someone we push, if we see 3+ we cancel and play strong towards reception." },
+          { number: 18, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Good retake, nice call — clean execution all around." },
+          { number: 19, side: "defense", tag: { type: "warn", label: "Smoke Placement" }, text: "Smoking bunker is a bit useless when we're not playing site — save it for when it actually cuts off a line." },
+          { number: 21, side: "defense", tag: { type: "info", label: "Space Trade" }, text: "4 on A — Fahniez, trade space and push towards C here; they might freeze so the timing can catch them off guard." },
+          { number: 22, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice try on this eco." },
+          { number: 23, side: "defense", tag: { type: "warn", label: "Arrow Break" }, text: "When we hear Phoenix ult on C long, it's almost always a first-intention push towards A, C, or a C split — someone must break the arrow immediately, it's mandatory." },
+          { number: 24, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "We know KJ is the lurker — Jett, you're on C long, go flank early, the rotation will take too long. Perfect read. Remember to call your flash Phoenix." },
+        ],
+      },
+    ],
+  },
+
   // ── Haven 26/02/2026 ─────────────────────────────────────────────────────────
   {
     slug: "haven-debrief-26-02-2026",
