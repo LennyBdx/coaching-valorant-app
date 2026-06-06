@@ -532,6 +532,64 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Ascent ALL GAMERS AC 06/06/2026 ─────────────────────────────────────────
+  {
+    slug: "ascent-debrief-06-06-2026",
+    map: "Ascent",
+    date: "06 Jun 2026",
+    team: "ROZ",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "01 → 12",
+        generalNotes: [
+          "Call agents as soon as you see them — Sova, Vyse, anyone. It helps the whole team understand what's coming.",
+          "Always maintain a revenge system when we have the numbers advantage — play for information, not for kills.",
+          "Call their ultimates and their economy — a low buy usually means something fast, not a controlled map play.",
+          "On Ascent with 3 on A or B, we cannot play too passive on back site. We need at least a trap on short or main so we can play on reaction: if they take short we take main; if they take main we can fight the lurk mid.",
+          "Call routines — Vyse always lurks when they split or run something fast. We can catch her before the retake if we anticipate it.",
+          "On retake: call your utilities and a clear guideline so everyone is on the same page before going in.",
+        ],
+        rounds: [
+          { number: 1, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice pistols. Next time go back immediately when we're up 5v3 — don't hesitate. Also call the agents you see as soon as you spot them." },
+          { number: 2, side: "defense", tag: { type: "info", label: "Retake Options" }, text: "Nice retake. Phoenix: consider playing a flash-peek on the contact of Omen — that could be a clean option in that situation." },
+          { number: 3, side: "defense", tag: { type: "info", label: "Smoke Usage" }, text: "Perfect retake. Yor: next time, smoke Lan when they're committed — Fahniez is alone on site, so a smoke there is very helpful. If you smoke main, no one will cross because our teammates are already covering A market." },
+          { number: 4, side: "defense", tag: { type: "warn", label: "Revenge System" }, text: "It's a 3v2 — if they go B, retake together. Don't go alone to CT without information. Always have a revenge system in place." },
+          { number: 5, side: "defense", tag: { type: "nice", label: "Good Reaction" }, text: "Great reaction — if we hear 5 on B, run behind them towards A. Perfect read and nice retake." },
+          { number: 6, side: "defense", tag: { type: "warn", label: "Setup Adjustment" }, text: "The A setup is too hard to hold like that. We play 3 on A very passively with Phoenix and Omen — we should play at least towards main or switch. And in the 2v1 situation, just waste time rather than forcing a fight." },
+          { number: 8, side: "defense", tag: { type: "nice", label: "Good Reaction" }, text: "Nice reaction on B main and nice retake." },
+          { number: 9, side: "defense", tag: { type: "info", label: "Agent Call" }, text: "Peach: call Vyse on main — we need to catch her before the retake, not deal with her during it." },
+          { number: 12, side: "defense", tag: { type: "warn", label: "Pattern Read" }, text: "Unlucky — we didn't read Phoenix. They always play first intention when they have the resource. Nice retake regardless." },
+        ],
+      },
+      {
+        side: "attack",
+        label: "T-Side",
+        roundRange: "13 → 24",
+        generalNotes: [
+          "Call the operator possibility early so everyone adjusts their movement.",
+          "Call enemy ultimates and their economy every round.",
+          "Always flash or send an arrow before going mid bottom.",
+          "On post-plant: call which lines you're holding so there are no surprises.",
+          "Our attack pattern is readable — when we play the extremities we don't smoke mid, and when we smoke mid we take it. Against good teams, vary the pattern.",
+          "Against this team, find the weakest site and default towards it — B was the weak side, with Sova and Omen usually on A. A mid default could work well in a more competitive setting.",
+        ],
+        rounds: [
+          { number: 13, side: "attack", tag: { type: "nice", label: "Advantage Management" }, text: "Nice pistols. When we have the advantage, we have two options: freeze or regroup. Perfect — that's exactly what we did." },
+          { number: 15, side: "attack", tag: { type: "info", label: "Utility Usage" }, text: "Nice round. A flash to clear left and right side mid could be a strong addition here." },
+          { number: 16, side: "attack", tag: { type: "warn", label: "Mid Communication" }, text: "Twice in a row someone went bottom mid without a pizza smoke — we need to call that before moving." },
+          { number: 19, side: "attack", tag: { type: "info", label: "Execution Readability" }, text: "It's a bit obvious here — if we go A, we make no activity mid, only a camera. Against good teams, at minimum default smoke mid so they can't read us. Or consider no cam to keep them guessing." },
+          { number: 20, side: "attack", tag: { type: "info", label: "Ult Coordination" }, text: "We have Omen ult — an option here: Sova goes back short and Omen TPs to B to surprise them from an unexpected angle." },
+          { number: 21, side: "attack", tag: { type: "info", label: "Post-Plant Comms" }, text: "Nice call, but on post-plant we need to play around Fahniez — we can't all stay back site. Call which lines you're watching. Nice ult Sova." },
+          { number: 23, side: "attack", tag: { type: "info", label: "Site Selection" }, text: "Against Vyse it's hard to all go main — a split could be a better option: same execute, but send 2 through short to split the pressure." },
+          { number: 24, side: "attack", tag: { type: "nice", label: "Post-Plant" }, text: "Nice post-plant. Yor: you can even smoke yourself so they fear crossing — great option to keep them passive." },
+        ],
+      },
+    ],
+  },
+
   // ── Lotus ───────────────────────────────────────────────────────────────────
   {
     slug: "lotus-debrief",
