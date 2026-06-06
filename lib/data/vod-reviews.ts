@@ -532,6 +532,61 @@ export const vodReviews: VodReview[] = [
     ],
   },
 
+  // ── Ascent RIVEN ─────────────────────────────────────────────────────────────
+  {
+    slug: "ascent-debrief-riven",
+    map: "Ascent",
+    team: "RIVEN",
+    tag: "// Match Analysis",
+    phases: [
+      {
+        side: "attack",
+        label: "T-Side",
+        roundRange: "01 → 11",
+        generalNotes: [
+          "Prefer smoking pizza over bottom mid — when we smoke bottom mid and later need that space, we burn extra utilities like flash. Pizza smoke + a reveal is cleaner, especially against Phoenix who can walk through a smoke and flash.",
+          "When we take mid control, avoid fighting bottom mid and short simultaneously — it's too risky. Always maintain a revenge system.",
+          "Call routines and repeatable setups they use — Vyse wall mid, Omen always tree.",
+          "Call the operator possibility and their economy every round.",
+          "Call their ultimates.",
+          "On post-plant: call which lines you're holding so there are no surprises.",
+        ],
+        rounds: [
+          { number: 1, side: "attack", tag: { type: "nice", label: "Well Played" }, text: "Nice pistols, and nice revenge system." },
+          { number: 2, side: "attack", tag: { type: "info", label: "Angle Coordination" }, text: "Good execution. Someone just needs to call that they're watching the cross smoke towards CT — that way not everyone peeks the same angle at once and we can clear back site properly." },
+          { number: 3, side: "attack", tag: { type: "nice", label: "Good Reaction" }, text: "Very good reaction." },
+          { number: 4, side: "attack", tag: { type: "info", label: "Timing Call" }, text: "Peach: when you have a great timing like that, call it — 'chill, go back A, I have the round, I have the angle.' It lets the team play around you instead of committing blindly." },
+          { number: 5, side: "attack", tag: { type: "info", label: "Advantage Management" }, text: "In a 4v4 we still have the T-side advantage — we don't need to force the site. We can rebuild the round or freeze so they think we're going back A and then punish their rotation." },
+          { number: 6, side: "attack", tag: { type: "warn", label: "Revenge System" }, text: "We're playing a bit too split here — Jett is alone with no one to trade her if she dies. Splitting mid may not be the best option when we can't cover each other." },
+          { number: 7, side: "attack", tag: { type: "nice", label: "Well Played" }, text: "Perfect. Just call the Jett dash on generator so everyone is aware of the timing." },
+          { number: 8, side: "attack", tag: { type: "info", label: "Post-Plant Comms" }, text: "Nice post-plant. Talk a bit more about which lines you're holding — call it as soon as the spike is down." },
+          { number: 9, side: "attack", tag: { type: "info", label: "Communication" }, text: "Nice entry Peach. Call 'I hold CT, don't worry' so the team doesn't over-rotate. Fahniez: remember to call when you're behind them so we can play around it." },
+          { number: 11, side: "attack", tag: { type: "info", label: "Utility Efficiency" }, text: "If we already smoked bottom mid, there's no need to arrow — he can push through the smoke anyway. Nice timing Fahniez, just call it next time." },
+        ],
+      },
+      {
+        side: "defense",
+        label: "CT-Side",
+        roundRange: "13 → 19",
+        generalNotes: [
+          "Call their economy and their ultimates every round.",
+          "Don't be naive in a 2v3 — when they don't have the advantage they will try to compensate. Play accordingly.",
+          "On defense, abuse Phoenix towards switch — she can flash main and short. If they commit, it's a very strong position to hold.",
+          "Remember to call when we have a numbers advantage so everyone adjusts their aggression.",
+          "We play Fahniez on A too much — switch the setups so they never expect the same traps every round.",
+        ],
+        rounds: [
+          { number: 13, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Great pistol — the setup works perfectly when they push mid like that." },
+          { number: 15, side: "defense", tag: { type: "warn", label: "Eco Awareness" }, text: "Nice retake. Be aware it's a 2v3 for them — they're going to look for kills to compensate. Don't give them easy angles." },
+          { number: 16, side: "defense", tag: { type: "warn", label: "Retake Coordination" }, text: "Weird retake — we need to talk more. Sova, you have your arrow; Jett is in the air. If Jett dies there's no one to trade her — coordinate before going in." },
+          { number: 17, side: "defense", tag: { type: "warn", label: "Smoke Timing" }, text: "Watch for Phoenix ult — call it immediately, it usually signals something fast. The smoke here is too early — they're not even on site yet. Smoke main instead, we still have a trap." },
+          { number: 18, side: "defense", tag: { type: "nice", label: "Well Played" }, text: "Nice round. Phoenix: you can even use your wall to bait them into a bad position." },
+          { number: 19, side: "defense", tag: { type: "info", label: "Reveal Call" }, text: "Nice retake. Sova: call more clearly when you have your reveal ready — intonation matters, especially when teammates need to time their push around your utility." },
+        ],
+      },
+    ],
+  },
+
   // ── Ascent ALL GAMERS AC 06/06/2026 ─────────────────────────────────────────
   {
     slug: "ascent-debrief-06-06-2026",

@@ -13,6 +13,7 @@ const mapColors: Record<string, string> = {
   Abyss: "#a29bfe",
   Breeze: "#e8ff47",
   Corrode: "#5a5f72",
+  Ascent: "#ff6b6b",
 };
 
 const teams = [
@@ -30,6 +31,11 @@ const teams = [
     name: "ROZ",
     accent: "#a29bfe",
     reviews: vodReviews.filter((v) => v.team === "ROZ"),
+  },
+  {
+    name: "RIVEN",
+    accent: "#ff6b6b",
+    reviews: vodReviews.filter((v) => v.team === "RIVEN"),
   },
 ];
 
