@@ -536,7 +536,7 @@ export const vodReviews: VodReview[] = [
   {
     slug: "ascent-debrief-riven",
     map: "Ascent",
-    team: "RIVEN",
+    team: "ROZ",
     tag: "// Match Analysis",
     phases: [
       {

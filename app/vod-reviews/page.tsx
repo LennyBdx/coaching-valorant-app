@@ -32,11 +32,6 @@ const teams = [
     accent: "#a29bfe",
     reviews: vodReviews.filter((v) => v.team === "ROZ"),
   },
-  {
-    name: "RIVEN",
-    accent: "#ff6b6b",
-    reviews: vodReviews.filter((v) => v.team === "RIVEN"),
-  },
 ];
 
 function VodCard({ vod }: { vod: VodReview }) {
