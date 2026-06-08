@@ -191,7 +191,7 @@ export default function HomePage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
 
-            {/* Left — identity + résultats */}
+            {/* Left — identity + results */}
             <div>
               <h2 style={{ fontFamily: "var(--font-syne)", fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 0.9, color: "#ECE8E1", margin: "0 0 24px" }}>
                 EDEN1
@@ -225,7 +225,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — équipes coachées */}
+            {/* Right — coached teams */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
               {[
                 { period: "2024 – 2025", role: "IGL Player", detail: "2 years as in-game leader", color: "#4EDBCA" },
