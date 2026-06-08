@@ -135,15 +135,15 @@ export default function MapViewer({ mapImageUrl, shapes, showExport }: Props) {
         <div style={{ marginTop: '12px' }}>
           <button onClick={handleExport}
             style={{ padding: '8px 20px', background: 'transparent', border: '1px solid var(--val-border2)', borderRadius: '6px', color: 'var(--val-muted)', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
-            ↓ Exporter PNG
+            ↓ Export PNG
           </button>
         </div>
       )}
 
       <Modal
         isOpen={exportErr}
-        title="Export impossible"
-        message="Le navigateur a bloqué l'export (images cross-origin). Utilise Win+Shift+S pour capturer l'écran."
+        title="Export failed"
+        message="The browser blocked the export (cross-origin images). Use Win+Shift+S to capture the screen."
         confirmLabel="OK"
         onConfirm={() => setExportErr(false)}
       />

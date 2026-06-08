@@ -40,10 +40,10 @@ export default function ViewCompoPage() {
         </Link>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px' }}>
           <button onClick={() => gate.request(() => router.push(`/comp/${mapSlug}/${id}/edit`))} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #1e2128', borderRadius: '6px', color: '#5a5f72', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
-            Modifier
+            Edit
           </button>
           <button onClick={() => gate.request(() => { remove(id); router.push(`/comp/${mapSlug}`); })} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #ff475740', borderRadius: '6px', color: '#ff4757', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
-            Supprimer
+            Delete
           </button>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function ViewCompoPage() {
           {compo.name}
         </h1>
         <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#5a5f72' }}>
-          {new Date(compo.createdAt).toLocaleDateString('fr-FR')}
+          {new Date(compo.createdAt).toLocaleDateString('en-GB')}
         </span>
       </div>
 

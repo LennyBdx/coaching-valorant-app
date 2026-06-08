@@ -13,11 +13,11 @@ type Tool = 'arrow' | 'path' | 'circle' | 'text' | 'agent';
 const CANVAS = 680;
 
 const TOOLS: { id: Tool; icon: string; label: string }[] = [
-  { id: 'arrow',  icon: '→', label: 'Flèche'  },
-  { id: 'path',   icon: '✏', label: 'Chemin'  },
-  { id: 'circle', icon: '◯', label: 'Zone'    },
-  { id: 'text',   icon: 'T', label: 'Texte'   },
-  { id: 'agent',  icon: '⬟', label: 'Agent'   },
+  { id: 'arrow',  icon: '→', label: 'Arrow'  },
+  { id: 'path',   icon: '✏', label: 'Path'   },
+  { id: 'circle', icon: '◯', label: 'Area'   },
+  { id: 'text',   icon: 'T', label: 'Text'   },
+  { id: 'agent',  icon: '⬟', label: 'Agent'  },
 ];
 
 const COLORS = ['#e8ff47', '#ff4757', '#4ecdc4', '#ff9f43', '#a29bfe', '#ffffff'];
@@ -241,7 +241,7 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
         <input
           value={stratName}
           onChange={e => setStratName(e.target.value)}
-          placeholder="Nom de la strat…"
+          placeholder="Strat name…"
           style={{ flex: 1, minWidth: '180px', background: '#111318', border: '1px solid #1e2128', borderRadius: '6px', padding: '9px 14px', color: '#e2e4ea', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', outline: 'none' }}
         />
         <div style={{ display: 'flex', gap: '4px' }}>
@@ -256,7 +256,7 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
           <button onClick={() => setShapes(p => p.slice(0, -1))} style={btnBase}>Undo</button>
           <button onClick={() => setShapes([])} style={btnBase}>Clear</button>
           <button onClick={handleSave} style={{ ...btnBase, background: '#e8ff47', color: '#0a0b0e', borderColor: '#e8ff47', fontWeight: 'bold' }}>
-            Sauvegarder
+            Save
           </button>
         </div>
       </div>
@@ -301,7 +301,7 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
 
           {/* Tools */}
           <div style={{ padding: '16px 14px 12px' }}>
-            <div style={label}>Outils</div>
+            <div style={label}>Tools</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px', marginTop: '10px' }}>
               {TOOLS.map(t => (
                 <button key={t.id} onClick={() => pickTool(t.id)} title={t.label}
@@ -312,17 +312,17 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
             </div>
             {tool !== 'agent' && (
               <div style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: '#5a5f72', marginTop: '8px', opacity: 0.7 }}>
-                {tool === 'arrow' && 'Cliquer-glisser'}
-                {tool === 'path'  && 'Dessiner librement'}
-                {tool === 'circle'&& 'Cliquer-glisser (rayon)'}
-                {tool === 'text'  && 'Cliquer → taper → Entrée'}
+                {tool === 'arrow' && 'Click and drag'}
+                {tool === 'path'  && 'Draw freely'}
+                {tool === 'circle'&& 'Click and drag (radius)'}
+                {tool === 'text'  && 'Click → type → Enter'}
               </div>
             )}
           </div>
 
           {/* Colors */}
           <div style={{ padding: '0 14px 14px' }}>
-            <div style={label}>Couleur</div>
+            <div style={label}>Color</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '5px', marginTop: '10px' }}>
               {COLORS.map(c => (
                 <button key={c} onClick={() => setColor(c)}
@@ -415,16 +415,16 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
         <div style={{ marginTop: '10px', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: ROLE_COLORS[selAgent.role as AgentRole], display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span>⬟</span>
           {selAbility
-            ? <span>Clique sur la map pour placer <strong>{selAbility.name}</strong> ({SLOT_LABELS[selAbility.slot]}) — glisse pour repositionner</span>
-            : <span>Clique sur la map pour placer <strong>{selAgent.name}</strong> — ou sélectionne un sort ci-dessus</span>
+            ? <span>Click on the map to place <strong>{selAbility.name}</strong> ({SLOT_LABELS[selAbility.slot]}) — drag to reposition</span>
+            : <span>Click on the map to place <strong>{selAgent.name}</strong> — or select an ability above</span>
           }
         </div>
       )}
 
       <Modal
         isOpen={alertOpen}
-        title="Nom manquant"
-        message="Donne un nom à ta strat avant de sauvegarder."
+        title="Missing name"
+        message="Give your strat a name before saving."
         confirmLabel="OK"
         onConfirm={() => setAlertOpen(false)}
       />

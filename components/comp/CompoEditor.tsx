@@ -52,11 +52,11 @@ export default function CompoEditor({ initialName = '', initialAgents = [], onSa
         <input
           value={name}
           onChange={e => setName(e.target.value)}
-          placeholder="Nom de la compo…"
+          placeholder="Comp name…"
           style={{ flex: 1, minWidth: '180px', background: '#111318', border: '1px solid #1e2128', borderRadius: '6px', padding: '9px 14px', color: '#e2e4ea', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', outline: 'none' }}
         />
         <button onClick={handleSave} style={{ padding: '9px 24px', background: '#e8ff47', border: '1px solid #e8ff47', borderRadius: '6px', color: '#0a0b0e', fontFamily: 'var(--font-dm-mono)', fontSize: '12px', letterSpacing: '1px', fontWeight: 'bold', cursor: 'pointer' }}>
-          Sauvegarder
+          Save
         </button>
       </div>
 
@@ -136,22 +136,22 @@ export default function CompoEditor({ initialName = '', initialAgents = [], onSa
 
       <Modal
         isOpen={alertOpen === 'name'}
-        title="Nom manquant"
-        message="Donne un nom à ta compo avant de sauvegarder."
+        title="Missing name"
+        message="Give your comp a name before saving."
         confirmLabel="OK"
         onConfirm={() => setAlertOpen(null)}
       />
       <Modal
         isOpen={alertOpen === 'empty'}
-        title="Aucun agent"
-        message="Sélectionne au moins un agent pour créer une compo."
+        title="No agent"
+        message="Select at least one agent to create a comp."
         confirmLabel="OK"
         onConfirm={() => setAlertOpen(null)}
       />
       <Modal
         isOpen={alertOpen === 'max'}
-        title="Compo complète"
-        message="Tu as déjà 5 agents. Retire-en un pour en ajouter un autre."
+        title="Comp full"
+        message="You already have 5 agents. Remove one to add another."
         confirmLabel="OK"
         onConfirm={() => setAlertOpen(null)}
       />

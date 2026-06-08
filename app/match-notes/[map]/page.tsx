@@ -59,7 +59,7 @@ export default function MapMatchNotesPage() {
   if (team === null || team === '') return null;
 
   if (!mapInfo) {
-    return <main style={{ padding: '60px', color: 'var(--val-text)', fontFamily: 'var(--font-dm-mono)' }}>Map introuvable.</main>;
+    return <main style={{ padding: '60px', color: 'var(--val-text)', fontFamily: 'var(--font-dm-mono)' }}>Map not found.</main>;
   }
 
   const sorted = [...notes].sort((a, b) => b.date.localeCompare(a.date));
@@ -292,12 +292,12 @@ export default function MapMatchNotesPage() {
                           <button
                             onClick={() => startEdit(note)}
                             style={{ background: 'transparent', border: 'none', color: 'var(--val-muted)', cursor: 'pointer', fontSize: '13px', padding: '0 6px' }}
-                            title="Modifier"
+                            title="Edit"
                           >✏</button>
                           <button
                             onClick={() => { setToDelete({ id: note.id, opponent: note.opponent }); gate.request(() => { remove(note.id); setToDelete(null); }); }}
                             style={{ background: 'transparent', border: 'none', color: 'var(--val-muted)', cursor: 'pointer', fontSize: '14px', padding: '0 4px' }}
-                            title="Supprimer"
+                            title="Delete"
                           >✕</button>
                         </div>
                       </div>
