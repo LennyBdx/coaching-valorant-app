@@ -8,7 +8,8 @@ import { useStrategies } from '@/lib/hooks/useStrategies';
 import { useActiveTeam } from '@/lib/hooks/useActiveTeam';
 import { getMapBySlug } from '@/lib/data/maps';
 import type { MapStrategy } from '@/lib/types';
-import Modal from '@/components/ui/Modal';
+import CodeModal from '@/components/ui/CodeModal';
+import { useCodeGate } from '@/lib/hooks/useCodeGate';
 
 const MapViewer = dynamic(() => import('@/components/strategy/MapViewer'), { ssr: false });
 
@@ -19,7 +20,7 @@ export default function ViewStrategyPage() {
   const mapInfo = getMapBySlug(mapSlug);
   const { getById, remove, loading } = useStrategies(mapSlug, team ?? undefined);
   const [strat, setStrat] = useState<MapStrategy | null>(null);
-  const [deleteOpen, setDeleteOpen] = useState(false);
+  const gate = useCodeGate();
 
   useEffect(() => {
     if (team === null || loading) return;
@@ -39,24 +40,19 @@ export default function ViewStrategyPage() {
       .map(s => (s as { agentName: string }).agentName)
   ));
 
-  function confirmDelete() {
-    remove(id);
-    router.push(`/strategies/${mapSlug}`);
-  }
-
   return (
     <main style={{ maxWidth: '1300px', margin: '0 auto', padding: '24px 40px 60px' }}>
+      <CodeModal isOpen={gate.open} error={gate.error} loading={gate.loading} onConfirm={gate.confirm} onCancel={gate.cancel} />
+
       <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
         <Link href={`/strategies/${mapSlug}`} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: '#5a5f72', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none' }}>
           ← {mapInfo.name.toUpperCase()}
         </Link>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px' }}>
-          <Link href={`/strategies/${mapSlug}/${id}/edit`}>
-            <button style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #1e2128', borderRadius: '6px', color: '#5a5f72', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
-              Modifier
-            </button>
-          </Link>
-          <button onClick={() => setDeleteOpen(true)} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #ff475740', borderRadius: '6px', color: '#ff4757', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
+          <button onClick={() => gate.request(() => router.push(`/strategies/${mapSlug}/${id}/edit`))} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #1e2128', borderRadius: '6px', color: '#5a5f72', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
+            Modifier
+          </button>
+          <button onClick={() => gate.request(() => { remove(id); router.push(`/strategies/${mapSlug}`); })} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #ff475740', borderRadius: '6px', color: '#ff4757', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
             Supprimer
           </button>
         </div>
@@ -90,16 +86,6 @@ export default function ViewStrategyPage() {
       )}
       <MapViewer mapImageUrl={mapInfo.displayIcon} shapes={strat.shapes} showExport />
 
-      <Modal
-        isOpen={deleteOpen}
-        title="Supprimer la strat ?"
-        message={`"${strat.name}" sera définitivement supprimée.`}
-        confirmLabel="Supprimer"
-        cancelLabel="Annuler"
-        danger
-        onConfirm={confirmDelete}
-        onCancel={() => setDeleteOpen(false)}
-      />
     </main>
   );
 }
