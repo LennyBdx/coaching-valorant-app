@@ -8,7 +8,8 @@ import { useActiveTeam } from '@/lib/hooks/useActiveTeam';
 import { getMapBySlug } from '@/lib/data/maps';
 import { ROLE_COLORS, type AgentRole } from '@/lib/data/agents';
 import type { MapCompo } from '@/lib/types';
-import Modal from '@/components/ui/Modal';
+import CodeModal from '@/components/ui/CodeModal';
+import { useCodeGate } from '@/lib/hooks/useCodeGate';
 
 export default function ViewCompoPage() {
   const { map: mapSlug, id } = useParams<{ map: string; id: string }>();
@@ -17,7 +18,7 @@ export default function ViewCompoPage() {
   const mapInfo = getMapBySlug(mapSlug);
   const { getById, remove, loading } = useCompos(mapSlug, team ?? undefined);
   const [compo, setCompo] = useState<MapCompo | null>(null);
-  const [deleteOpen, setDeleteOpen] = useState(false);
+  const gate = useCodeGate();
 
   useEffect(() => {
     if (team === null || loading) return;
@@ -31,17 +32,17 @@ export default function ViewCompoPage() {
 
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '24px 40px 60px' }}>
+      <CodeModal isOpen={gate.open} error={gate.error} loading={gate.loading} onConfirm={gate.confirm} onCancel={gate.cancel} />
+
       <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center' }}>
         <Link href={`/comp/${mapSlug}`} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: '#5a5f72', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none' }}>
           ← {mapInfo.name.toUpperCase()}
         </Link>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px' }}>
-          <Link href={`/comp/${mapSlug}/${id}/edit`}>
-            <button style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #1e2128', borderRadius: '6px', color: '#5a5f72', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
-              Modifier
-            </button>
-          </Link>
-          <button onClick={() => setDeleteOpen(true)} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #ff475740', borderRadius: '6px', color: '#ff4757', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
+          <button onClick={() => gate.request(() => router.push(`/comp/${mapSlug}/${id}/edit`))} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #1e2128', borderRadius: '6px', color: '#5a5f72', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
+            Modifier
+          </button>
+          <button onClick={() => gate.request(() => { remove(id); router.push(`/comp/${mapSlug}`); })} style={{ padding: '8px 18px', background: 'transparent', border: '1px solid #ff475740', borderRadius: '6px', color: '#ff4757', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '1px', cursor: 'pointer' }}>
             Supprimer
           </button>
         </div>
@@ -74,16 +75,6 @@ export default function ViewCompoPage() {
         })}
       </div>
 
-      <Modal
-        isOpen={deleteOpen}
-        title="Supprimer la compo ?"
-        message={`"${compo.name}" sera définitivement supprimée.`}
-        confirmLabel="Supprimer"
-        cancelLabel="Annuler"
-        danger
-        onConfirm={() => { remove(id); router.push(`/comp/${mapSlug}`); }}
-        onCancel={() => setDeleteOpen(false)}
-      />
     </main>
   );
 }
