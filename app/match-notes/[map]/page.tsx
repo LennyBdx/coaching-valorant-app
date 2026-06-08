@@ -48,8 +48,10 @@ export default function MapMatchNotesPage() {
   function handleEditSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!editForm.opponent.trim() || !editingId) return;
-    update(editingId, { date: editForm.date, opponent: editForm.opponent, atkScore: +editForm.atkScore, defScore: +editForm.defScore, oppScore: +editForm.oppScore, notes: editForm.notes });
-    setEditingId(null);
+    gate.request(() => {
+      update(editingId!, { date: editForm.date, opponent: editForm.opponent, atkScore: +editForm.atkScore, defScore: +editForm.defScore, oppScore: +editForm.oppScore, notes: editForm.notes });
+      setEditingId(null);
+    });
   }
 
   useEffect(() => {
@@ -72,9 +74,11 @@ export default function MapMatchNotesPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.opponent.trim()) return;
-    add({ mapSlug, mapName: mapInfo!.name, ...form, atkScore: +form.atkScore, defScore: +form.defScore, oppScore: +form.oppScore });
-    setForm(EMPTY_FORM);
-    setShowForm(false);
+    gate.request(() => {
+      add({ mapSlug, mapName: mapInfo!.name, ...form, atkScore: +form.atkScore, defScore: +form.defScore, oppScore: +form.oppScore });
+      setForm(EMPTY_FORM);
+      setShowForm(false);
+    });
   }
 
   const inputStyle: React.CSSProperties = {

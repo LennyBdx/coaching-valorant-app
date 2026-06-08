@@ -26,7 +26,7 @@ export default function CreateCompoPage() {
   }, [team, router]);
 
   if (team === null || team === '') return null;
-  if (!mapInfo) return <main style={{ padding: '60px', color: '#e2e4ea', fontFamily: 'var(--font-dm-mono)' }}>Map introuvable.</main>;
+  if (!mapInfo) return <main style={{ padding: '60px', color: '#e2e4ea', fontFamily: 'var(--font-dm-mono)' }}>Map not found.</main>;
 
   function handleSave(name: string, agents: CompoAgent[]) {
     gate.request(() => {
