@@ -33,6 +33,16 @@ const url = (uuid: string, slot: string) => `https://media.valorant-api.com/agen
 export const AGENTS: AgentInfo[] = [
   // ── Duelists ──
   {
+    name: 'Jett', role: 'Duelist',
+    icon: 'https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png',
+    abilities: [
+      ab('Grenade',  'Updraft',     url('add6443a-41bd-e414-f6ad-e58d267f4e95', 'Grenade')),
+      ab('Ability1', 'Tailwind',    url('add6443a-41bd-e414-f6ad-e58d267f4e95', 'Ability1')),
+      ab('Ability2', 'Cloudburst',  url('add6443a-41bd-e414-f6ad-e58d267f4e95', 'Ability2')),
+      ab('Ultimate', 'Blade Storm', url('add6443a-41bd-e414-f6ad-e58d267f4e95', 'Ultimate')),
+    ],
+  },
+  {
     name: 'Iso', role: 'Duelist',
     icon: 'https://media.valorant-api.com/agents/0e38b510-41a8-5780-5e8f-568b2a4f2d6c/displayicon.png',
     abilities: [
