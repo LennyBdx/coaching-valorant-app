@@ -87,6 +87,15 @@ export default function MapViewer({ mapImageUrl, shapes, showExport }: Props) {
     switch (s.type) {
       case 'arrow':
         return <Arrow key={s.id} points={s.points} stroke={s.color} fill={s.color} strokeWidth={3} pointerLength={14} pointerWidth={10} lineCap="round" />;
+      case 'wall': {
+        const [wx1, wy1, wx2, wy2] = s.points;
+        return (
+          <Group key={s.id}>
+            <Line points={[wx1, wy1, wx2, wy2]} stroke={s.color} strokeWidth={14} opacity={0.18} lineCap="butt" />
+            <Line points={[wx1, wy1, wx2, wy2]} stroke={s.color} strokeWidth={3} opacity={0.95} lineCap="butt" dash={[10, 5]} />
+          </Group>
+        );
+      }
       case 'path':
         return <Line key={s.id} points={s.points} stroke={s.color} strokeWidth={3} tension={0.4} lineCap="round" lineJoin="round" />;
       case 'circle':

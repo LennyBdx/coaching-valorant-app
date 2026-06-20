@@ -79,6 +79,12 @@ export interface ArrowShape {
   color: string;
 }
 
+export interface WallShape {
+  id: string; type: 'wall';
+  points: number[]; // [x1,y1, x2,y2]
+  color: string;
+}
+
 export interface PathShape {
   id: string; type: 'path';
   points: number[];
@@ -115,7 +121,7 @@ export interface AbilityShape {
   abilityIcon: string;
 }
 
-export type StratShape = ArrowShape | PathShape | CircleShape | TextShape | AgentShape | AbilityShape;
+export type StratShape = ArrowShape | PathShape | CircleShape | TextShape | AgentShape | AbilityShape | WallShape;
 
 export interface MapStrategy {
   id: string;

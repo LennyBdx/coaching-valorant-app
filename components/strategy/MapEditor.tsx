@@ -8,7 +8,7 @@ import type { AbilityInfo } from '@/lib/data/agents';
 import type { StratShape } from '@/lib/types';
 import Modal from '@/components/ui/Modal';
 
-type Tool = 'arrow' | 'path' | 'circle' | 'text' | 'agent';
+type Tool = 'arrow' | 'path' | 'circle' | 'text' | 'agent' | 'wall';
 
 const CANVAS = 680;
 
@@ -17,6 +17,7 @@ const TOOLS: { id: Tool; icon: string; label: string }[] = [
   { id: 'path',   icon: '✏', label: 'Path'   },
   { id: 'circle', icon: '◯', label: 'Area'   },
   { id: 'text',   icon: 'T', label: 'Text'   },
+  { id: 'wall',   icon: '▬', label: 'Wall'   },
   { id: 'agent',  icon: '⬟', label: 'Agent'  },
 ];
 
@@ -43,7 +44,7 @@ const btnBase: React.CSSProperties = {
   whiteSpace: 'nowrap',
 };
 
-const STRAT_TAGS = ['rush', 'default', 'fake', 'save', 'retake', 'split'] as const;
+const STRAT_TAGS = ['rush', 'default', 'fake', 'save', 'retake', 'split', 'pistols'] as const;
 
 interface Props {
   mapImageUrl: string;
@@ -128,6 +129,8 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
     const p = getPos(); if (!p) return;
     if (tool === 'arrow') {
       setPreview({ id: '_', type: 'arrow', points: [origin.current[0], origin.current[1], p.x, p.y], color });
+    } else if (tool === 'wall') {
+      setPreview({ id: '_', type: 'wall', points: [origin.current[0], origin.current[1], p.x, p.y], color });
     } else if (tool === 'path') {
       pathPts.current = [...pathPts.current, p.x, p.y];
       setPreview({ id: '_', type: 'path', points: [...pathPts.current], color });
@@ -167,6 +170,15 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
     switch (s.type) {
       case 'arrow':
         return <Arrow key={s.id} points={s.points} stroke={s.color} fill={s.color} strokeWidth={3} pointerLength={14} pointerWidth={10} lineCap="round" />;
+      case 'wall': {
+        const [wx1, wy1, wx2, wy2] = s.points;
+        return (
+          <Group key={s.id}>
+            <Line points={[wx1, wy1, wx2, wy2]} stroke={s.color} strokeWidth={14} opacity={0.18} lineCap="butt" />
+            <Line points={[wx1, wy1, wx2, wy2]} stroke={s.color} strokeWidth={3} opacity={0.95} lineCap="butt" dash={[10, 5]} />
+          </Group>
+        );
+      }
       case 'path':
         return <Line key={s.id} points={s.points} stroke={s.color} strokeWidth={3} tension={0.4} lineCap="round" lineJoin="round" />;
       case 'circle':
@@ -302,7 +314,7 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
           {/* Tools */}
           <div style={{ padding: '16px 14px 12px' }}>
             <div style={label}>Tools</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px', marginTop: '10px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px', marginTop: '10px' }}>
               {TOOLS.map(t => (
                 <button key={t.id} onClick={() => pickTool(t.id)} title={t.label}
                   style={{ aspectRatio: '1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: 'bold', background: tool === t.id ? '#1e2128' : 'transparent', border: `1px solid ${tool === t.id ? '#e8ff47' : '#2a2d38'}`, borderRadius: '6px', color: tool === t.id ? '#e8ff47' : '#5a5f72', cursor: 'pointer', transition: 'all 0.15s' }}>
@@ -316,6 +328,7 @@ export default function MapEditor({ mapImageUrl, onSave, initialName = '', initi
                 {tool === 'path'  && 'Draw freely'}
                 {tool === 'circle'&& 'Click and drag (radius)'}
                 {tool === 'text'  && 'Click → type → Enter'}
+                {tool === 'wall'  && 'Click and drag (wall line)'}
               </div>
             )}
           </div>
