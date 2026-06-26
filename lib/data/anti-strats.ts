@@ -461,6 +461,234 @@ export const antiStrats: AntiStrat[] = [
     ],
   },
 
+  // ── Ascent vs 36 Thieves ─────────────────────────────────────────────────────
+  {
+    slug: "ascent-36-thieves",
+    map: "Ascent",
+    opponent: "36 Thieves",
+    tag: "// Enemy Analysis",
+    sections: [
+      // ── ATTACK ───────────────────────────────────────────────────────────────
+      {
+        kind: "block",
+        badgeType: "pistol",
+        title: "Their Attack Pistol",
+        blocks: [
+          {
+            accent: "orange",
+            blockTitle: "// Attack Pistol",
+            items: [
+              "Basically they split B so our pistol is perfect.",
+            ],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "eco",
+        title: "Their Attack Eco",
+        blocks: [
+          {
+            accent: "yellow",
+            blockTitle: "// Anti-Eco Setup",
+            items: [
+              "They do Jett Phoenix B lobby, Omen on top on the roof on A T spawn and Sova KJ top mid.",
+            ],
+            agents: ["Jett", "Phoenix", "Omen", "Sova", "KJ"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "general",
+        title: "Their Attack Default",
+        blocks: [
+          {
+            accent: "red",
+            blockTitle: "// Default Setup",
+            items: [
+              "Phoenix activity B main smoke pizza reveal and Jett Omen Sova taking middle and KJ holding A main.",
+            ],
+            agents: ["Phoenix", "Jett", "Omen", "Sova", "KJ"],
+          },
+        ],
+      },
+      {
+        kind: "cards",
+        badgeType: "attack",
+        title: "Their Attack Patterns",
+        cards: [
+          {
+            color: "red",
+            label: "KJ Lurk",
+            heading: "KJ always lurking B main, mid, or A main",
+            text: "KJ always lurking B main or mid or A main.",
+            agents: ["KJ"],
+          },
+          {
+            color: "red",
+            label: "Phoenix Ult",
+            heading: "Phoenix ult bottom mid — don't push him",
+            text: "When they split B with Phoenix ult they play 4 B main and only on mid it's Phoenix so we cannot push him, he ults bottom mid.",
+            agents: ["Phoenix"],
+          },
+          {
+            color: "red",
+            label: "Low Buy",
+            heading: "They like to play mid on low buy",
+            text: "On low buy they like to play mid.",
+          },
+          {
+            color: "red",
+            label: "A Split",
+            heading: "When they split A, A main is very weak",
+            text: "When they split A, A main is very weak — we can play strong A main and push if they A split.",
+          },
+          {
+            color: "red",
+            label: "Operator Mid",
+            heading: "Op mid looking for a kill short top mid",
+            text: "They like to play operator middle and when they do that the op is most of the time middle trying to get a kill short top mid.",
+          },
+          {
+            color: "red",
+            label: "KJ Ult",
+            heading: "KJ ult = they finish B at end of round",
+            text: "When they have KJ ult they like to finish B at the end of the round.",
+            agents: ["KJ"],
+          },
+          {
+            color: "red",
+            label: "Phoenix Orb",
+            heading: "Punish Phoenix taking orb — she plays aggressive",
+            text: "We can punish Phoenix B main always taking orb pretty often, otherwise she takes too much confidence and likes to play very aggressive so we have to punish her.",
+            agents: ["Phoenix"],
+          },
+          {
+            color: "red",
+            label: "Omen TP",
+            heading: "Omen TPs left or heaven with a flash on A main",
+            text: "When they want to take A main Omen likes to TP left or heaven and jump with a flash so be aware — if we cancel them they like to redirect instantly and finish B.",
+            agents: ["Omen"],
+          },
+          {
+            color: "red",
+            label: "Numbers Down",
+            heading: "Under numbers = solo peeks to equalize",
+            text: "If they are under numbers they will try to do crazy solo peeks to try to get back the numbers.",
+          },
+        ],
+      },
+      // ── DEFENSE ──────────────────────────────────────────────────────────────
+      {
+        kind: "block",
+        badgeType: "pistol",
+        title: "Their Defense Pistol",
+        blocks: [
+          {
+            accent: "orange",
+            blockTitle: "// Defense Pistol Setup",
+            items: [
+              "Phoenix taking info B main, Sova stairs on B and Jett taking aggressive peek middle close to market, KJ and Omen on A close to A main.",
+            ],
+            agents: ["Phoenix", "Sova", "Jett", "KJ", "Omen"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "eco",
+        title: "Their Defense Eco",
+        blocks: [
+          {
+            accent: "yellow",
+            blockTitle: "// Defense Eco Setup",
+            items: [
+              "They like to push A main and put a trap B main — KJ and Phoenix — so when they are on eco we can take mid to be safe.",
+            ],
+            agents: ["KJ", "Phoenix"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "general",
+        title: "Their Defense Default",
+        blocks: [
+          {
+            accent: "teal",
+            blockTitle: "// Default Setup",
+            items: [
+              "KJ plays B, Sova playing A, Phoenix plays B main or pizza and Jett is always in rotation A short close to pizza — it depends.",
+            ],
+            agents: ["KJ", "Sova", "Phoenix", "Jett"],
+          },
+        ],
+      },
+      {
+        kind: "cards",
+        badgeType: "defense",
+        title: "Their Defense Patterns",
+        cards: [
+          {
+            color: "teal",
+            label: "Phoenix B",
+            heading: "Phoenix flash peeks B main — be anti-flash",
+            text: "They like to play Phoenix on B and take flash peek B main, sometimes we need to be anti-flash if we want to take B main.",
+            agents: ["Phoenix"],
+          },
+          {
+            color: "teal",
+            label: "A Main",
+            heading: "One A main, one wine — Omen flash if pushing",
+            text: "They like to contest A main and play one A main and one wine with Omen flash if they're pushing.",
+            agents: ["Omen"],
+          },
+          {
+            color: "teal",
+            label: "Jett Walk",
+            heading: "Jett walks short or bottom mid — watch the monesy peek",
+            text: "Jett likes to push short or bottom mid slowly walking so be aware (she can do the same monesy peek like us).",
+            agents: ["Jett"],
+          },
+          {
+            color: "teal",
+            label: "KJ Tell",
+            heading: "When you see KJ it's their weakest site",
+            text: "Most of the time when we see KJ it's the weakest site.",
+            agents: ["KJ"],
+          },
+          {
+            color: "teal",
+            label: "Mid Control",
+            heading: "Mid taken + no one visible = flank from behind",
+            text: "If we took middle and we don't see anyone it means they are hard taking A main and B main so be careful behind — they like to flank.",
+          },
+          {
+            color: "teal",
+            label: "B Setup",
+            heading: "KJ and Sova play back site on B",
+            text: "On B, KJ and Sova like to play back site, boat etc.",
+            agents: ["KJ", "Sova"],
+          },
+          {
+            color: "teal",
+            label: "Mid Solution",
+            heading: "Playing mid is the answer — they play strong on sites",
+            text: "Against them playing mid is the solution because they like to play strong towards site.",
+          },
+          {
+            color: "teal",
+            label: "4-1 Gamble",
+            heading: "Jett alone on one site — 4 on the other",
+            text: "They like to make gambles on a site because they like to put Jett B main or A main and play 4 on the opposite.",
+            agents: ["Jett"],
+          },
+        ],
+      },
+    ],
+  },
+
   // ── Split vs 36 Thieves ──────────────────────────────────────────────────────
   {
     slug: "split-36-thieves",
