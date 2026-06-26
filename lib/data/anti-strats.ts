@@ -550,7 +550,7 @@ export const antiStrats: AntiStrat[] = [
             color: "teal",
             label: "Off-Angles",
             heading: "They push behind when they take a space",
-            text: "They like to take off-angles: if they hold B main, expect them to push further behind for a forward position. Don't stand still after trading a space — they follow up.",
+            text: "They like to take off-angles: if they hold B main, expect them to push further behind for a forward position.",
           },
           {
             color: "teal",
