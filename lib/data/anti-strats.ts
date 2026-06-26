@@ -537,7 +537,7 @@ export const antiStrats: AntiStrat[] = [
             color: "teal",
             label: "Viper Ult",
             heading: "Viper ult mid = A is weak (max 2 defenders)",
-            text: "When Viper uses her ult on mid, A drops to a maximum of 2 defenders. This is a clear signal to commit A fast — don't let the ult scare you away from the right read.",
+            text: "When Viper uses her ult on mid, A drops to a maximum of 2 defenders. This is a clear signal to commit A fast.",
             agents: ["Viper"],
           },
           {
