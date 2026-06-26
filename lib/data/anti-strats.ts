@@ -478,8 +478,7 @@ export const antiStrats: AntiStrat[] = [
             accent: "orange",
             blockTitle: "// Defense Pistol Setup",
             items: [
-              "They push through mid at the 3:00 mark with numbers, Omen pushes B main, and Viper holds A by CT.",
-              "Expect early mid aggression — don't give them free mid control at the start of the round.",
+              "They push mid as 3, Omen pushes B main, and Viper holds A by CT.",
             ],
             agents: ["Omen", "Viper"],
           },
