@@ -528,8 +528,8 @@ export const antiStrats: AntiStrat[] = [
           {
             color: "red",
             label: "Phoenix Ult",
-            heading: "Phoenix ult bottom mid — don't push him",
-            text: "When they split B with Phoenix ult they play 4 B main and only on mid it's Phoenix so we cannot push him, he ults bottom mid.",
+            heading: "Phoenix ult bottom mid — push him, he's alone",
+            text: "When they split B with Phoenix ult they play 4 B main and only on mid it's Phoenix — push him, he's isolated.",
             agents: ["Phoenix"],
           },
           {
