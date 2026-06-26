@@ -555,8 +555,8 @@ export const antiStrats: AntiStrat[] = [
           {
             color: "teal",
             label: "Reading Us",
-            heading: "They adapt and play the opposite site next round",
-            text: "They try to read our tendencies. If we hammer A and they shut it down, expect them to heavily stack A next round because they assume we won't come back. Play the site they least expect — switch early, not late.",
+            heading: "They play the opposite — hit the same site twice",
+            text: "If we go A and get stomped, they'll shift strong to B next round assuming we won't come back. That leaves A weak — we can hit the same site twice in a row and catch them off guard.",
           },
           {
             color: "teal",
