@@ -494,7 +494,6 @@ export const antiStrats: AntiStrat[] = [
             blockTitle: "// Anti-Eco Setup",
             items: [
               "Jett and Raze on A, Skye and Omen on B, Viper mid.",
-              "They keep a spread setup even on eco — take map control early, then commit to a site once mid is locked down.",
             ],
             agents: ["Jett", "Raze", "Skye", "Omen", "Viper"],
           },
