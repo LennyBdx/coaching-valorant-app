@@ -461,6 +461,172 @@ export const antiStrats: AntiStrat[] = [
     ],
   },
 
+  // ── Split vs 36 Thieves ──────────────────────────────────────────────────────
+  {
+    slug: "split-36-thieves",
+    map: "Split",
+    opponent: "36 Thieves",
+    tag: "// Enemy Analysis",
+    sections: [
+      {
+        kind: "cards",
+        badgeType: "defense",
+        title: "Their Defense Patterns",
+        cards: [
+          {
+            color: "teal",
+            label: "Default",
+            heading: "Omen B one-way, Viper mid, Jett heaven B, Skye heaven A, Raze site A",
+            text: "Their default: Omen plays B main with a one-way, Viper controls mid, Jett holds heaven B, Skye holds heaven A, and Raze plays site A. Mid is almost always open — abuse it.",
+            agents: ["Omen", "Viper", "Jett", "Skye", "Raze"],
+          },
+          {
+            color: "teal",
+            label: "Setup Switches",
+            heading: "They switch every round — mid stays open",
+            text: "They like to switch their setup frequently, playing 3 B or 3 towards A. No matter the configuration, mid tends to stay underprotected. Use mid control to make the right call once inside.",
+          },
+          {
+            color: "teal",
+            label: "Viper Ult",
+            heading: "Viper ult mid = A is weak (max 2 defenders)",
+            text: "When Viper uses her ult on mid, A drops to a maximum of 2 defenders. This is a clear signal to commit A fast — don't let the ult scare you away from the right read.",
+            agents: ["Viper"],
+          },
+          {
+            color: "teal",
+            label: "B Heavy",
+            heading: "They stack B — mid and A stay weak",
+            text: "They frequently play heavy on B, which consistently leaves mid and A thin. Don't be caught off guard if B feels stacked while the rest of the map is open.",
+          },
+          {
+            color: "teal",
+            label: "Off-Angles",
+            heading: "They push behind when they take a space",
+            text: "They like to take off-angles: if they hold B main, expect them to push further behind for a forward position. Don't stand still after trading a space — they follow up.",
+          },
+          {
+            color: "teal",
+            label: "Reading Us",
+            heading: "They adapt and play the opposite site next round",
+            text: "They try to read our tendencies. If we hammer A and they shut it down, expect them to heavily stack A next round because they assume we won't come back. Play the site they least expect — switch early, not late.",
+          },
+          {
+            color: "teal",
+            label: "Mid Pressure",
+            heading: "If we dominate mid, Raze and Jett come mid",
+            text: "If we play strong towards mid consistently, they adapt and pull Raze and Jett there to contest it. Be ready to switch the plan when mid becomes contested.",
+            agents: ["Raze", "Jett"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "pistol",
+        title: "Their Defense Pistol",
+        blocks: [
+          {
+            accent: "orange",
+            blockTitle: "// Defense Pistol Setup",
+            items: [
+              "They push through mid at the 3:00 mark with numbers, Omen pushes B main, and Viper holds A by CT.",
+              "Expect early mid aggression — don't give them free mid control at the start of the round.",
+            ],
+            agents: ["Omen", "Viper"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "bonus",
+        title: "Their Defense Bonus",
+        blocks: [
+          {
+            accent: "purple",
+            blockTitle: "// Bonus Setup + Counter",
+            items: [
+              "Skye and Viper take B main, no one mid, and Omen/Jett/Raze hold A main.",
+              "Counter: go fast B split. Mid is completely open and B main has only two players — overwhelm it before they can react.",
+            ],
+            agents: ["Skye", "Viper", "Omen", "Jett", "Raze"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "eco",
+        title: "Their Defense Eco",
+        blocks: [
+          {
+            accent: "yellow",
+            blockTitle: "// Anti-Eco Setup",
+            items: [
+              "Jett and Raze on A, Skye and Omen on B, Viper mid.",
+              "They keep a spread setup even on eco — take map control early, then commit to a site once mid is locked down.",
+            ],
+            agents: ["Jett", "Raze", "Skye", "Omen", "Viper"],
+          },
+        ],
+      },
+      {
+        kind: "cards",
+        badgeType: "attack",
+        title: "Their Attack Patterns",
+        cards: [
+          {
+            color: "red",
+            label: "Default",
+            heading: "Omen B main, Viper A main, trio mid",
+            text: "Their default: Omen holds B main, Viper holds A main, and the trio (Raze, Jett, Skye) takes mid control. They work from the middle outward before committing to a site.",
+            agents: ["Omen", "Viper", "Raze", "Jett", "Skye"],
+          },
+          {
+            color: "red",
+            label: "4-1 with Lurk",
+            heading: "Viper always lurking — 4 push together",
+            text: "They like to play 4-1 with Viper always lurking while the four others push together looking for a kill. The team commits once the lurk finds an opening.",
+            agents: ["Viper"],
+          },
+          {
+            color: "red",
+            label: "Redirect",
+            heading: "Fast A? They'll rotate CT through heaven to B",
+            text: "They redirect a lot: if they fast A and fail to get on site, they rotate CT through heaven and swing B instead. Don't abandon B when they show A — the redirect is real.",
+          },
+          {
+            color: "red",
+            label: "Five-Man Rush",
+            heading: "No solution = five-man rush without a lurk",
+            text: "When they're stuck, they default to a five-man rush on B or A with no lurk. If the round is going nowhere for them, expect a straight, committed push.",
+          },
+          {
+            color: "red",
+            label: "Viper Wall",
+            heading: "Viper walks through her wall on A for picks",
+            text: "Viper likes to walk through her own wall on A to catch defenders off-guard — looking for a timing or a pick. If she finds one, the team immediately redirects onto her position.",
+            agents: ["Viper"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "pistol",
+        title: "Their Attack Pistol",
+        blocks: [
+          {
+            accent: "orange",
+            blockTitle: "// Attack Pistol — A Split",
+            items: [
+              "It's an A split: 4 players mid smoking mail, dog, and vent — Viper waits A main, then the team pushes through vent.",
+              "Hold mid smoke angles and contest the split early — force them to burn utility before they can cross and set up.",
+            ],
+            agents: ["Viper"],
+          },
+        ],
+      },
+    ],
+  },
+
   // ── Breeze vs Floppers ───────────────────────────────────────────────────────
   {
     slug: "breeze-floppers",
