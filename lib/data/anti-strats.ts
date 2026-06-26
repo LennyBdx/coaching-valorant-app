@@ -578,7 +578,6 @@ export const antiStrats: AntiStrat[] = [
             blockTitle: "// Attack Pistol — A Split",
             items: [
               "It's an A split: 4 players mid smoking mail, dog, and vent — Viper waits A main, then the team pushes through vent.",
-              "Hold mid smoke angles and contest the split early — force them to burn utility before they can cross and set up.",
             ],
             agents: ["Viper"],
           },
