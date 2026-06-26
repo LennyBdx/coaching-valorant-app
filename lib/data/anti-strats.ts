@@ -599,7 +599,7 @@ export const antiStrats: AntiStrat[] = [
             color: "red",
             label: "4-1 with Lurk",
             heading: "Viper always lurking — 4 push together",
-            text: "They like to play 4-1 with Viper always lurking while the four others push together looking for a kill. The team commits once the lurk finds an opening.",
+            text: "They like to play 4-1 with Viper always lurking while the four others push together looking for a kill.",
             agents: ["Viper"],
           },
           {
