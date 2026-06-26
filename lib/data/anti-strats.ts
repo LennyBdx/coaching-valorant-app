@@ -468,6 +468,55 @@ export const antiStrats: AntiStrat[] = [
     opponent: "36 Thieves",
     tag: "// Enemy Analysis",
     sections: [
+      // ── DEFENSE ──────────────────────────────────────────────────────────────
+      {
+        kind: "block",
+        badgeType: "pistol",
+        title: "Their Defense Pistol",
+        blocks: [
+          {
+            accent: "orange",
+            blockTitle: "// Defense Pistol Setup",
+            items: [
+              "They push through mid at the 3:00 mark with numbers, Omen pushes B main, and Viper holds A by CT.",
+              "Expect early mid aggression — don't give them free mid control at the start of the round.",
+            ],
+            agents: ["Omen", "Viper"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "eco",
+        title: "Their Defense Eco",
+        blocks: [
+          {
+            accent: "yellow",
+            blockTitle: "// Anti-Eco Setup",
+            items: [
+              "Jett and Raze on A, Skye and Omen on B, Viper mid.",
+              "They keep a spread setup even on eco — take map control early, then commit to a site once mid is locked down.",
+            ],
+            agents: ["Jett", "Raze", "Skye", "Omen", "Viper"],
+          },
+        ],
+      },
+      {
+        kind: "block",
+        badgeType: "bonus",
+        title: "Their Defense Bonus",
+        blocks: [
+          {
+            accent: "purple",
+            blockTitle: "// Bonus Setup + Counter",
+            items: [
+              "Skye and Viper take B main, no one mid, and Omen/Jett/Raze hold A main.",
+              "Counter: go fast B split. Mid is completely open and B main has only two players — overwhelm it before they can react.",
+            ],
+            agents: ["Skye", "Viper", "Omen", "Jett", "Raze"],
+          },
+        ],
+      },
       {
         kind: "cards",
         badgeType: "defense",
@@ -520,51 +569,20 @@ export const antiStrats: AntiStrat[] = [
           },
         ],
       },
+      // ── ATTACK ───────────────────────────────────────────────────────────────
       {
         kind: "block",
         badgeType: "pistol",
-        title: "Their Defense Pistol",
+        title: "Their Attack Pistol",
         blocks: [
           {
             accent: "orange",
-            blockTitle: "// Defense Pistol Setup",
+            blockTitle: "// Attack Pistol — A Split",
             items: [
-              "They push through mid at the 3:00 mark with numbers, Omen pushes B main, and Viper holds A by CT.",
-              "Expect early mid aggression — don't give them free mid control at the start of the round.",
+              "It's an A split: 4 players mid smoking mail, dog, and vent — Viper waits A main, then the team pushes through vent.",
+              "Hold mid smoke angles and contest the split early — force them to burn utility before they can cross and set up.",
             ],
-            agents: ["Omen", "Viper"],
-          },
-        ],
-      },
-      {
-        kind: "block",
-        badgeType: "bonus",
-        title: "Their Defense Bonus",
-        blocks: [
-          {
-            accent: "purple",
-            blockTitle: "// Bonus Setup + Counter",
-            items: [
-              "Skye and Viper take B main, no one mid, and Omen/Jett/Raze hold A main.",
-              "Counter: go fast B split. Mid is completely open and B main has only two players — overwhelm it before they can react.",
-            ],
-            agents: ["Skye", "Viper", "Omen", "Jett", "Raze"],
-          },
-        ],
-      },
-      {
-        kind: "block",
-        badgeType: "eco",
-        title: "Their Defense Eco",
-        blocks: [
-          {
-            accent: "yellow",
-            blockTitle: "// Anti-Eco Setup",
-            items: [
-              "Jett and Raze on A, Skye and Omen on B, Viper mid.",
-              "They keep a spread setup even on eco — take map control early, then commit to a site once mid is locked down.",
-            ],
-            agents: ["Jett", "Raze", "Skye", "Omen", "Viper"],
+            agents: ["Viper"],
           },
         ],
       },
@@ -604,22 +622,6 @@ export const antiStrats: AntiStrat[] = [
             label: "Viper Wall",
             heading: "Viper walks through her wall on A for picks",
             text: "Viper likes to walk through her own wall on A to catch defenders off-guard — looking for a timing or a pick. If she finds one, the team immediately redirects onto her position.",
-            agents: ["Viper"],
-          },
-        ],
-      },
-      {
-        kind: "block",
-        badgeType: "pistol",
-        title: "Their Attack Pistol",
-        blocks: [
-          {
-            accent: "orange",
-            blockTitle: "// Attack Pistol — A Split",
-            items: [
-              "It's an A split: 4 players mid smoking mail, dog, and vent — Viper waits A main, then the team pushes through vent.",
-              "Hold mid smoke angles and contest the split early — force them to burn utility before they can cross and set up.",
-            ],
             agents: ["Viper"],
           },
         ],
