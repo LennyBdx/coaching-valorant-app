@@ -204,13 +204,13 @@ export default function HomePage() {
                   Valorant coach — <span style={{ color: "#ECE8E1" }}>Game Changers 2026 EMEA</span>.
                 </div>
                 <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: "12px", color: "#7A8899", lineHeight: 1.8 }}>
-                  <span style={{ color: "#74B9FF" }}>—</span> <span style={{ color: "#74B9FF" }}>Head coach</span> — <span style={{ color: "#74B9FF" }}>Top 5–6</span> GC SEA Split 2 Main Event with <span style={{ color: "#ECE8E1" }}>ROZ</span>.
-                </div>
-                <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: "12px", color: "#7A8899", lineHeight: 1.8 }}>
                   <span style={{ color: "#4EDBCA" }}>—</span> <span style={{ color: "#4EDBCA" }}>Top 8</span> GC 2026: EMEA Cash Cup March with <span style={{ color: "#ECE8E1" }}>Everlasting</span>.
                 </div>
                 <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: "12px", color: "#7A8899", lineHeight: 1.8 }}>
                   <span style={{ color: "#E8FF47" }}>—</span> Promos / relegation prep with <span style={{ color: "#ECE8E1" }}>Twisted Saints X</span>.
+                </div>
+                <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: "12px", color: "#7A8899", lineHeight: 1.8 }}>
+                  <span style={{ color: "#74B9FF" }}>—</span> <span style={{ color: "#74B9FF" }}>Top 5–6</span> GC SEA Split 2 Main Event with <span style={{ color: "#ECE8E1" }}>ROZ</span>.
                 </div>
               </div>
 
@@ -232,9 +232,9 @@ export default function HomePage() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
               {[
                 { period: "2024 – 2025", role: "IGL Player", detail: "2 years as in-game leader", color: "#4EDBCA" },
-                { period: "2026", role: "ROZ", detail: "Head coach · Top 5–6 · GC SEA Split 2 Main Event", color: "#74B9FF" },
                 { period: "2026", role: "Everlasting", detail: "Valorant Game Changers 2026 · EMEA", color: "#A29BFE" },
                 { period: "2026", role: "Twisted Saints X", detail: "Promos / relegation prep · EMEA", color: "#E8FF47" },
+                { period: "2026", role: "ROZ", detail: "Top 5–6 · GC SEA Split 2 Main Event · APAC", color: "#74B9FF" },
               ].map((item, i, arr) => (
                 <div key={i} style={{ display: "flex", gap: "20px", paddingBottom: "28px", position: "relative" }}>
                   {i < arr.length - 1 && (
